@@ -2,26 +2,31 @@
 import React, { useState, useEffect } from "react";
 
 export default function PasswordForm() {
- 
-  useEffect(() => {
-    fetch("/api/products/categories")
-      .then(res => res.json())
-      .then(data => setCategories(data)); 
-  }, []);
 
   useEffect(() => {
+    getCat();
+    getTypes();
+    getModels();
+  }, []);
+
+  const getTypes = () => {
     fetch("/api/products/types")
       .then(res => res.json())
       .then(data => setType(data));
-  }, []);
+  }
+  const getCat = () => {
+    fetch("/api/products/categories")
+      .then(res => res.json())
+      .then(data => setCategories(data));
+  }
 
-  useEffect(() => {
+  const getModels = () => {
     fetch("/api/products/models")
       .then(res => res.json())
-      .then(data => setModel(data)); 
-  }, []);
+      .then(data => setModel(data));
+  }
 
- 
+
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,7 +46,7 @@ export default function PasswordForm() {
   const [productColor, setProductColor] = useState('RED');
   const [productSize, setProductSize] = useState('SMALL');
 
- 
+
   function checkPassword(e) {
     e.preventDefault();
     if (password !== currentPassword) {
@@ -51,30 +56,25 @@ export default function PasswordForm() {
     setIsAuthenticated(true);
   }
 
-  
+
   const addProduct = async () => {
-    const productData = {
-      categoryId: selectedCategoryId,
-      typeId: selectedTypeId,
-      modelId: selectedModelId,
-      name: productName,
-      image: productImage,
-      price: productPrice,
-      quantity: productQuantity,
-      size: productSize,
-      color: productColor,
-    };
-
-    const resp = await fetch(`/api/products/addProducts`, {
+    const formData = new FormData();
+    formData.append('categoryId', selectedCategoryId);
+    formData.append('typeId', selectedTypeId);
+    formData.append('modelId', selectedModelId);
+    formData.append('name', productName);
+    formData.append('image', productImage); 
+    formData.append('price', productPrice);
+    formData.append('quantity', productQuantity);
+    formData.append('size', productSize);
+    formData.append('color', productColor);
+  
+    const resp = await fetch('/api/products/addProducts', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(productData),
+      body: formData,
     });
-
+  
     if (resp.ok) {
-      
       setCategories([]);
       setType([]);
       setModel([]);
@@ -84,13 +84,14 @@ export default function PasswordForm() {
       setProductPrice("");
       setProductQuantity("");
       setProductSize("SMALL");
-
+  
       alert('Product added successfully!');
     }
-
+  
     const data = await resp.json();
     console.log(data);
   };
+  
 
   return (
     <div className="mt-52">
@@ -234,5 +235,7 @@ export default function PasswordForm() {
         </>
       )}
     </div>
-  );
+);
 }
+
+
