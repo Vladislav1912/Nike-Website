@@ -94,7 +94,7 @@ export default function page() {
     };
 
     try {
-      const resp = await fetch(`/api/products/update/${id}`, {
+      const resp = await fetch(`/api/products/editProducts`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ export default function page() {
       });
       if (resp.ok) {
         alert("Product updated successfully!");
-        router.push("/products"); 
+        router.push("/products/crocs"); 
       } else {
         alert("Failed to update product.");
       }
