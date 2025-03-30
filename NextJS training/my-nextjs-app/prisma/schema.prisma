@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:vladikukata@127.0.0.1:3306/store"
+}
+
+enum Size {
+  SMALL
+  MEDIUM
+  LARGE
+  XL
+}
+
+enum Color {
+  RED
+  BLUE
+  GREEN
+  BLACK
+  WHITE
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  categoryId  String?
+  typeId      String? 
+  modelId     String?  
+  name        String
+  size        Size
+  color       Color
+  image       String   @db.Text
+  quantity    Int      @default(0)
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category    Category? @relation(fields: [categoryId], references: [id])
+  type        Type?     @relation(fields: [typeId], references: [id])
+  model       Model?    @relation(fields: [modelId], references: [id])
+}
+
+
+model Category {
+  id       String    @id @default(uuid())
+  name     String
+  products Product[]
+}
+
+model Type {
+  id       String    @id @default(uuid())
+  name     String
+  products Product[]
+}
+
+model Model {
+   id       String    @id @default(uuid())
+   name     String    
+   products Product[]
+}
