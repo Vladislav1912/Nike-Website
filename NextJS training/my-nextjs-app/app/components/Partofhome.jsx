@@ -21,5 +21,6 @@ export default function Partofhome() {
           </Link>
           </div>
     </div>
+    
   )
 }

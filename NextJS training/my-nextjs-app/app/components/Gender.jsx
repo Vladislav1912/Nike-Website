@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Gender() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 bg-gray-800">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 bg-white">
       
       <div className="relative">
         <img src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_454,c_limit/faaa351d-c8dd-44b6-b850-7d853382ce09/nike-air-max-day-2025-introducing-the-air-max-dn8%C2%A0%C2%A0.jpg" alt="Men's Fashion" className="w-full h-full object-cover" />

@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className="bg-gray-900 text-gray-500 py-10">
+    <div className="bg-white text-black py-10">
       <div className="border-t border-gray-600 pt-6">
         <div className="max-w-screen-xl mx-auto px-6">
 
@@ -90,8 +90,8 @@ export default function Footer() {
 
           {/* Social Media Links */}
           <div className="flex justify-center mt-6 space-x-4">
-            <FaFacebook className="text-white hover:text-gray-600 cursor-pointer" size={24} />
-            <FaInstagram className="text-white hover:text-pink-500 cursor-pointer" size={24} />
+            <FaFacebook className="text-black hover:text-blue-600 cursor-pointer" size={24} />
+            <FaInstagram className="text-black hover:text-pink-500 cursor-pointer" size={24} />
           </div>
 
         </div>
