@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Partofhome() {
   return (
     <div 
-      className='flex w-full h-[800px] relative' 
+      className='flex w-full h-[800px]  relative' 
       style={{
         backgroundImage: `url(https://static.nike.com/a/images/w_1920,c_limit,f_auto,q_auto/ecf17c46-2f05-4857-8d0c-883afd336c7b/image.jpg)`,
         backgroundSize: 'cover',

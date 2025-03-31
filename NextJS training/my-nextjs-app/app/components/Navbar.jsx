@@ -39,7 +39,7 @@ const Navbar = () => {
           <div className="relative text-gray-600">
            <input
            type="text"
-           className="pl-10 pr-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+           className="pl-10 pr-4 py-2 border border-gray-300 bg-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
            placeholder="Search"
           />
           <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
