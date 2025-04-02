@@ -1,10 +1,12 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import ProductItem from '@/app/components/ProductItem';
+import SaleOff from '@/app/components/SaleOff';
 
 export default function Crocs() {
   // product, set....
   // api 
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -32,8 +34,10 @@ export default function Crocs() {
       }
 
       const data = await response.json();
-
+      
+      console.log(`Detected data: ${data}`);
       console.log(data);
+      
 
       setProducts(data.products);
     }
@@ -52,8 +56,11 @@ export default function Crocs() {
   }
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6'>
+    <div>
+    <SaleOff/>
+    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 pt-16 bg-white'>
       {products.map(product => (<ProductItem key={product.id} product={product} onDelete={handleDeleteBtn} />))}
+    </div>
     </div>
   )
 }

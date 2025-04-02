@@ -9,9 +9,9 @@ const CustomCarousel = () => {
   const slides = [
     {
       image: 'tylajpg.jpg',
-      title: 'TYLA X NIKE DN8',
+      title: 'NIKE AIR MAX DN8',
       subtitle: 'Exploration 1 of 8: Tyla',
-      buttonText: 'Explore Tyla x Nike',
+      buttonText: 'Explore DN8',
       link: '/products/crocs'
     },
     {

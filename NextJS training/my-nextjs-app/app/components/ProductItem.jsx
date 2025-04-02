@@ -1,16 +1,17 @@
-import React from 'react';
+'use client'
+import {useState , useEffect}from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-
-
 export default function ProductItem({ product, onDelete }) {
+
+  
   const router = useRouter();
   const handleEditBtn = (id) => {
     router.push(`/products/${id}/edit`);
   }
   return (
-    <div className="bg-white rounded-md overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white  overflow-hidden ">
       <img
         src={product.image}
         alt={product.name}
@@ -19,7 +20,8 @@ export default function ProductItem({ product, onDelete }) {
 
       <div className="p-4">
         <h3 className="text-md text-gray-900 font-semibold">{product.name}</h3>
-        <p className="text-sm text-gray-600">{product.type}</p>
+        <p className="text-sm text-gray-600">{product?.category?.name ? product.category.name : `No Category`}</p>
+        <p className="text-sm text-gray-600">{product?.type?.name ? product.type.name : `No Type`}</p>
         <p className="text-md text-black font-bold mt-1">BGN {product.price}</p>
 
         <div className="flex gap-2 mt-4">

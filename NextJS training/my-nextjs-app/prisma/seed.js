@@ -5,20 +5,20 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.category.createMany({
     data: [
-      { name: 'men' },
-      { name: 'women' },
-      { name: 'kids' },
-      { name: 'unisex' },
+      { name: 'Men' },
+      { name: 'Women' },
+      { name: 'Kids' },
+      { name: 'Unisex' },
     ],
   });
 
   await prisma.type.createMany({
     data: [
-      { name: 'shoes' },
-      { name: 't-shirt' },
-      { name: 'pants' },
-      { name: 'hoodies' },
-      { name: 'jackets'},
+      { name: 'Shoes' },
+      { name: 'T-shirt' },
+      { name: 'Pants' },
+      { name: 'Hoodies' },
+      { name: 'Jackets'},
     ],
   });
 
