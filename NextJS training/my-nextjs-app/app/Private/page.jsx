@@ -75,9 +75,6 @@ export default function PasswordForm() {
     });
   
     if (resp.ok) {
-      setCategories([]);
-      setType([]);
-      setModel([]);
       setProductColor("RED");
       setProductImage("");
       setProductName("");

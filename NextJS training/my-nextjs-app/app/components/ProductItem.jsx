@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 export default function ProductItem({ product, onDelete }) {
 
-  
+  console.log(`Product: ${product}`);
   const router = useRouter();
   const handleEditBtn = (id) => {
     router.push(`/products/${id}/edit`);

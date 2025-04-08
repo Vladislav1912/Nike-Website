@@ -2,17 +2,21 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 export default async function handler(req, res) {
-    const { category } = req.body;
+    const { categoryId } = req.query;
+
+
     try {
 
         if (req.method === 'GET') {
             try {
                 const products = await prisma.category.findFirst({
-                    where: { name: category },
+                    where: { name: categoryId },
                     include: {
-                        products: true
+                        products:{
+                            include: {type: true, category: true}
+                        }, 
                     },
-                })
+                });
 
                 return res.status(201).json({ products });
 
