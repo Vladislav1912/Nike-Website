@@ -8,7 +8,7 @@ import Partofhome3 from "./components/Partofhome3";
 
 export default function Home() {
   return (
-    <main className="bg-black ">
+    <main>
       <div className="pt-16">
       <HomeSection/>
       </div>

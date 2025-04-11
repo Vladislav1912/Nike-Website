@@ -23,10 +23,10 @@ const Navbar = () => {
             <Link href="/products/crocs/men" className="">
               Men
             </Link>
-            <Link href="" className="">
+            <Link href="/products/crocs/women" className="">
               Women
             </Link>
-            <Link href="#" className="">
+            <Link href="/products/crocs/kids" className="">
               Kids
             </Link>
             <Link href="#" className="">
