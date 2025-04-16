@@ -1,10 +1,20 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { SiNike } from "react-icons/si";
 
 const Navbar = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+
+    setIsOpen(!isOpen)
+  }
+
+
   return (
     <nav className="bg-white text-black fixed w-full top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,6 +42,47 @@ const Navbar = () => {
             <Link href="#" className="">
               Sale
             </Link>
+
+            <button
+              type="button"
+              className="inline-flex justify-center w-full
+                               rounded-md border border-gray-300
+                               shadow-sm px-4 py-2 bg-white text-sm
+                               font-medium text-black hover:bg-gray-50"
+              onClick={toggleDropdown}
+            >
+              
+              <FiSearch className="ml-2" />
+            </button>
+
+            {/* Dropdown menu */}
+            {isOpen && (
+              <div className="origin-top-right absolute
+                                    right-0 mt-2 w-56 rounded-md
+                                    shadow-lg bg-white ring-1 ring-black
+                                    ring-opacity-5 focus:outline-none">
+                <div className="py-1">
+                  <a
+                    href="#"
+                    className="block px-4 py-2
+                                               text-sm text-black
+                                               hover:bg-gray-100"
+                    onClick={() => alert('abi')}
+                  >
+                    mishirt
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2
+                                               text-sm text-black
+                                               hover:bg-gray-100"
+                    onClick={() => alert('tshirt')}
+                  >
+                    tshirt
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
 
 
