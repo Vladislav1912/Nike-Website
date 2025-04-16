@@ -91,7 +91,7 @@ export default function PasswordForm() {
   
 
   return (
-    <div className="mt-52">
+    <div className="mt-16">
       {isAuthenticated === false ? (
         <div className="flex items-center justify-center min-h-screen bg-gray-100"
           style={{
