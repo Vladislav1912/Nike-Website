@@ -91,22 +91,22 @@ export default function PasswordForm() {
   
 
   return (
-    <div className="mt-16">
+    <div className="flex h-[1000px] items-center">
       {isAuthenticated === false ? (
         <div className="flex items-center justify-center min-h-screen bg-gray-100"
           style={{
-            backgroundImage: `url(https://image.cnbcfm.com/api/v1/image/107265409-1688135513093-gettyimages-1258511119-AFP_33HH3AZ.jpeg?v=1726778509&w=1920&h=1080)`,
+            backgroundImage: `url(https://www.zastavki.com/pictures/1920x1080/2014/Brands_Nike_logo_on_a_black_background_086037_23.jpg)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         >
-          <form onSubmit={checkPassword} className="bg-white p-6 rounded-lg shadow-md w-96">
+          <form onSubmit={checkPassword} className="bg-white p-6 rounded-lg shadow-md w-96 text-center text-black">
             <h2 className="text-xl font-semibold mb-4">Enter Your Password</h2>
 
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
                 placeholder="Enter password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -120,7 +120,7 @@ export default function PasswordForm() {
 
             <button
               type="submit"
-              className="w-full mt-4 bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-200"
+              className="w-full mt-4 bg-black text-white p-3 rounded-lg hover:bg-gray-400 hover:text-black transition duration-200"
             >
               Submit
             </button>
@@ -128,107 +128,115 @@ export default function PasswordForm() {
         </div>
       ) : (
         <>
-          <div className="relative text-black">
-            <input
-              type="text"
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Name"
-              value={productName}
-              onChange={(e) => setProductName(e.target.value)}
-            />
-            <input
-              type="text"
-              className="w-full p-3 mb-5 text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={productPrice}
-              placeholder="Price"
-              onChange={(e) => setProductPrice(e.target.value)}
-            />
-            <input
-              type="number"
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Quantity"
-              value={productQuantity}
-              onChange={(e) => setProductQuantity(e.target.value)}
-            />
+            <div className="bg-[#1a1f2b] p-8 rounded-lg text-white max-w-4xl mx-auto my-14">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-            <select
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={selectedCategoryId}
-              onChange={(e) => setSelectedCategoryId(e.target.value)}
-            >
-              <option value="">Select Category</option>
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
+                <input
+                  type="text"
+                  placeholder="Product Name"
+                  value={productName}
+                  onChange={(e) => setProductName(e.target.value)}
+                  className="w-full bg-transparent border-b border-gray-500 py-2 focus:outline-none"
+                />
 
-            <select
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={selectedModelId}
-              onChange={(e) => setSelectedModelId(e.target.value)}
-            >
-              <option value="">Select Model</option>
-              {model.map((model) => (
-                <option key={model.id} value={model.id}>
-                  {model.name}
-                </option>
-              ))}
-            </select>
+                <input
+                  type="text"
+                  placeholder="Price"
+                  value={productPrice}
+                  onChange={(e) => setProductPrice(e.target.value)}
+                  className="w-full bg-transparent border-b border-gray-500 py-2 focus:outline-none"
+                />
 
-            <select
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={selectedTypeId}
-              onChange={(e) => setSelectedTypeId(e.target.value)}
-            >
-              <option value="">Select Type</option>
-              {type.map((typeItem) => (
-                <option key={typeItem.id} value={typeItem.id}>
-                  {typeItem.name}
-                </option>
-              ))}
-            </select>
+                <input
+                  type="number"
+                  placeholder="Quantity"
+                  value={productQuantity}
+                  onChange={(e) => setProductQuantity(e.target.value)}
+                  className="w-full bg-transparent border-b border-gray-500 py-2 focus:outline-none"
+                />
 
-            <select
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={productColor}
-              onChange={(e) => setProductColor(e.target.value)}
-            >
-              <option value="RED">RED</option>
-              <option value="BLACK">BLACK</option>
-              <option value="BLUE">BLUE</option>
-              <option value="GREEN">GREEN</option>
-              <option value="WHITE">WHITE</option>
-            </select>
+                <input
+                  type="text"
+                  placeholder="Image URL"
+                  value={productImage}
+                  onChange={(e) => setProductImage(e.target.value)}
+                  className="w-full bg-[#1a1f2b] text-white border-b border-gray-500 py-2 focus:outline-none"
+                />
 
-            <select
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={productSize}
-              onChange={(e) => setProductSize(e.target.value)}
-            >
-              <option value="SMALL">SMALL</option>
-              <option value="MEDIUM">MEDIUM</option>
-              <option value="LARGE">LARGE</option>
-              <option value="XL">XL</option>
-            </select>
+                <select
+                  value={selectedCategoryId}
+                  onChange={(e) => setSelectedCategoryId(e.target.value)}
+                  className="w-full bg-[#1a1f2b] text-white border-b border-gray-500 py-2 focus:outline-none"
+                >
+                  <option value="">Select Category</option>
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
 
-            <input
-              type="text"
-              className="w-full p-3 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Image URL"
-              value={productImage}
-              onChange={(e) => setProductImage(e.target.value)}
-            />
-          </div>
+                <select
+                  value={selectedModelId}
+                  onChange={(e) => setSelectedModelId(e.target.value)}
+                  className="w-full bg-[#1a1f2b] text-white border-b border-gray-500 py-2 focus:outline-none"
+                >
+                  <option value="">Select Model</option>
+                  {model.map((model) => (
+                    <option key={model.id} value={model.id}>
+                      {model.name}
+                    </option>
+                  ))}
+                </select>
 
-          <button
-            onClick={addProduct}
-            type="button"
-            className="w-full mt-4 bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-200"
-          >
-            Add Product
-          </button>
+                <select
+                  value={selectedTypeId}
+                  onChange={(e) => setSelectedTypeId(e.target.value)}
+                  className="w-full bg-[#1a1f2b] text-white border-b border-gray-500 py-2 focus:outline-none"
+                >
+                  <option value="">Select Type</option>
+                  {type.map((typeItem) => (
+                    <option key={typeItem.id} value={typeItem.id}>
+                      {typeItem.name}
+                    </option>
+                  ))}
+                </select>
+
+                <select
+                  value={productColor}
+                  onChange={(e) => setProductColor(e.target.value)}
+                  className="w-full bg-[#1a1f2b] text-white border-b border-gray-500 py-2 focus:outline-none"
+                >
+                  <option value="">Select Color</option>
+                  <option value="RED">RED</option>
+                  <option value="BLACK">BLACK</option>
+                  <option value="BLUE">BLUE</option>
+                  <option value="GREEN">GREEN</option>
+                  <option value="WHITE">WHITE</option>
+                </select>
+
+                <select
+                  value={productSize}
+                  onChange={(e) => setProductSize(e.target.value)}
+                  className="w-full bg-[#1a1f2b] text-white border-b border-gray-500 py-2 focus:outline-none"
+                >
+                  <option value="">Select Size</option>
+                  <option value="SMALL">SMALL</option>
+                  <option value="MEDIUM">MEDIUM</option>
+                  <option value="LARGE">LARGE</option>
+                  <option value="XL">XL</option>
+                </select>
+              </div>
+
+              <button
+                onClick={addProduct}
+                type="button"
+                className="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition duration-200"
+              >
+                Add Product
+              </button>
+            </div>
+
         </>
       )}
     </div>

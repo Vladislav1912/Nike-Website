@@ -34,7 +34,7 @@ export default function SaleOff() {
   };
 
   return (
-    <div className='w-full bg-gray-400 text-black font-bold flex justify-center items-center h-16'>
+    <div className='w-full bg-gray-200 text-black font-bold flex justify-center items-center h-16'>
       <button className='text-gray-700 hover:text-black mx-4' onClick={handlePrevBtn}>
         <IoIosArrowBack size={24} />
       </button>

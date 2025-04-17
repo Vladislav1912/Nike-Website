@@ -38,7 +38,7 @@ const CustomCarousel = () => {
   ];
    
   return (
-    <div className="flex w-full aspect-video overflow-hidden relative ">
+    <div className="flex w-full aspect-video overflow-hidden relative">
       <Swiper
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
